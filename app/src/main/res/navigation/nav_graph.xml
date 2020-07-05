@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/repoListFragment">
+
+    <fragment
+        android:id="@+id/repoListFragment"
+        android:name="br.com.itau.github.presentation.repoList.view.RepoListFragment"
+        android:label="fragment_repo_list"
+        tools:layout="@layout/fragment_repo_list" >
+        <action
+            android:id="@+id/action_go_to_pr_view"
+            app:destination="@id/prFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/prFragment"
+        android:name="br.com.itau.github.presentation.repoPrs.view.PrFragment"
+        android:label="fragment_pr"
+        tools:layout="@layout/fragment_pr" >
+        <argument
+            android:name="repo"
+            app:argType="br.com.itau.github.domain.entity.RepoEntity" />
+    </fragment>
+</navigation>

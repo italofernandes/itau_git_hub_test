@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">GitHub Repositories</string>
+
+    <!-- Connectivity Exception Accessibility -->
+    <string name="service_conn_error_msg">Serviço indisponínel, verirfique sua conexão com a internet</string>
+    <string name="service_generic_error_msg">Serviço indisponínel, tente mais tarde.</string>
+
+    <!-- Pr Empty List Message -->
+    <string name="prs_empty_list_msg">Não foram encontrados Pull Requests para esse Repositório.</string>
+
+    <!-- Repo Item Accessibility -->
+    <string name="repo_item_accessibility_repo_title">Nome do Repositório: %s.</string>
+    <string name="repo_item_accessibility_repo_summary">Descrição do repositório: %s.</string>
+    <string name="repo_item_accessibility_repo_star">Número de favoritos, %s.</string>
+    <string name="repo_item_accessibility_repo_forks">Número de Forks, %s.</string>
+    <string name="repo_item_accessibility_repo_author">Nome do autor, %s.</string>
+
+    <!-- Pr Item Accessibility -->
+    <string name="pr_toolbar_accessibility_repo_title">Pull Requests para o Repositório: %s.</string>
+    <string name="pr_item_accessibility_repo_title">Título do Pull Request: %s.</string>
+    <string name="pr_item_accessibility_repo_summary">Descrição do Pull Request: %s.</string>
+    <string name="pr_item_accessibility_repo_author">Nome do autor do Pull Request, %s.</string>
+
+</resources>
