@@ -1,11 +1,13 @@
 package br.com.itau.github.common.domain.usecase
 
+import androidx.annotation.VisibleForTesting
 import br.com.itau.github.R
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import java.net.SocketTimeoutException
 
 abstract class BaseUseCase {
+    @VisibleForTesting
     private val disposableBag = CompositeDisposable()
 
     fun addDisposable(disposable: Disposable) = disposableBag.add(disposable)
