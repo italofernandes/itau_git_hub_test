@@ -14,11 +14,14 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.itau.github.R
 import br.com.itau.github.common.extentions.addEndScrollListener
+import br.com.itau.github.common.extentions.announceForAccessibility
+import br.com.itau.github.common.extentions.setupActionBar
 import br.com.itau.github.di.loadListDependencies
 import br.com.itau.github.presentation.repoList.view.adapter.RepoItemAdapter
 import br.com.itau.github.presentation.repoList.viewmodel.RepoListViewModel
 import br.com.itau.github.presentation.repoPrs.view.REPO_BUNDLE_EXTRA
 import kotlinx.android.synthetic.main.fragment_repo_list.view.*
+import kotlinx.android.synthetic.main.tool_bar.view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RepoListFragment : Fragment() {
@@ -45,6 +48,8 @@ class RepoListFragment : Fragment() {
 
         navController = Navigation.findNavController(view)
 
+        setupActionBar(view.toolbar, getString(R.string.app_name))
+
         listAdapter = RepoItemAdapter {repo ->
             val bundle = bundleOf(REPO_BUNDLE_EXTRA to repo)
             navController.navigate(R.id.action_go_to_pr_view, bundle)
@@ -66,14 +71,21 @@ class RepoListFragment : Fragment() {
     private fun observe(view: View){
         viewModel.listRepo.observe(viewLifecycleOwner, Observer { list ->
             listAdapter.list = list
+            announceForAccessibility(getString(R.string.repo_result_accessibility_msg, list.size.toString()))
         })
 
         viewModel.errorMsgRes.observe(viewLifecycleOwner, Observer {msgRes ->
+            announceForAccessibility(getString(msgRes))
             Toast.makeText(activity, msgRes, Toast.LENGTH_LONG).show()
         })
 
         viewModel.loading.observe(viewLifecycleOwner, Observer { show->
-            view.loading.visibility = if (show) View.VISIBLE else View.GONE
+            view.loading.visibility = if (show){
+                announceForAccessibility(getString(R.string.repo_loading_accessibility_msg))
+                View.VISIBLE
+            } else{
+                View.GONE
+            }
         })
     }
 }

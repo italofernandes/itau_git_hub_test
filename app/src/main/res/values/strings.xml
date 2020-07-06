@@ -9,6 +9,8 @@
     <string name="prs_empty_list_msg">Não foram encontrados Pull Requests para esse Repositório.</string>
 
     <!-- Repo Item Accessibility -->
+    <string name="repo_loading_accessibility_msg">Carregando Repositórios.</string>
+    <string name="repo_result_accessibility_msg">%s Repositórios encontrados.</string>
     <string name="repo_item_accessibility_repo_title">Nome do Repositório: %s.</string>
     <string name="repo_item_accessibility_repo_summary">Descrição do repositório: %s.</string>
     <string name="repo_item_accessibility_repo_star">Número de favoritos, %s.</string>
@@ -16,7 +18,9 @@
     <string name="repo_item_accessibility_repo_author">Nome do autor, %s.</string>
 
     <!-- Pr Item Accessibility -->
-    <string name="pr_toolbar_accessibility_repo_title">Pull Requests para o Repositório: %s.</string>
+    <string name="pr_loading_accessibility_msg">Carregando Pull Requests.</string>
+    <string name="pr_result_accessibility_msg">%s Pull Requests encontrados.</string>
+    <string name="pr_toolbar_accessibility_greeting">Pull Requests para o Repositório: %s.</string>
     <string name="pr_item_accessibility_repo_title">Título do Pull Request: %s.</string>
     <string name="pr_item_accessibility_repo_summary">Descrição do Pull Request: %s.</string>
     <string name="pr_item_accessibility_repo_author">Nome do autor do Pull Request, %s.</string>

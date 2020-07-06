@@ -12,6 +12,8 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.itau.github.R
+import br.com.itau.github.common.extentions.announceForAccessibility
+import br.com.itau.github.common.extentions.setupActionBar
 import br.com.itau.github.di.loadPrListDependencies
 import br.com.itau.github.domain.entity.RepoEntity
 import br.com.itau.github.presentation.repoPrs.view.adapter.PrItemAdapter
@@ -19,7 +21,6 @@ import br.com.itau.github.presentation.repoPrs.viewmodel.PrViewModel
 import kotlinx.android.synthetic.main.fragment_pr.view.*
 import kotlinx.android.synthetic.main.tool_bar.view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
-
 
 const val REPO_BUNDLE_EXTRA = "repo_extra"
 
@@ -68,29 +69,37 @@ class PrFragment : Fragment() {
     private fun observe(view: View){
 
         viewModel.repoName.observe(viewLifecycleOwner, Observer { repoName->
-            (activity as AppCompatActivity?)?.apply {
-                val toolbar = view.toolbar
-                setSupportActionBar(view.toolbar)
-                title = repoName
-                supportActionBar?.setDisplayHomeAsUpEnabled(true)
-                toolbar.contentDescription = getString(R.string.pr_toolbar_accessibility_repo_title, repoName)
-            }
+            setupActionBar(view.toolbar, repoName, true)
+            announceForAccessibility(getString(R.string.pr_toolbar_accessibility_greeting, repoName))
         })
 
         viewModel.prList.observe(viewLifecycleOwner, Observer { list ->
             prAdapter.list = list
+            announceForAccessibility(getString(R.string.pr_result_accessibility_msg, list.size.toString()))
         })
 
         viewModel.errorMsgRes.observe(viewLifecycleOwner, Observer { msgRes ->
             Toast.makeText(activity, msgRes, Toast.LENGTH_LONG).show()
+            announceForAccessibility(getString(msgRes))
+
         })
 
         viewModel.loading.observe(viewLifecycleOwner, Observer { show ->
-            view.loading.visibility = if (show) View.VISIBLE else View.GONE
+            view.loading.visibility = if (show){
+                announceForAccessibility(getString(R.string.pr_loading_accessibility_msg))
+                View.VISIBLE
+            } else{
+                View.GONE
+            }
         })
 
         viewModel.emptyList.observe(viewLifecycleOwner, Observer { show ->
-            view.prEmptyListMsg.visibility = if (show) View.VISIBLE else View.GONE
+            view.prEmptyListMsg.visibility = if (show){
+                announceForAccessibility(view.prEmptyListMsg.text.toString())
+                View.VISIBLE
+            } else{
+                View.GONE
+            }
         })
     }
 }
