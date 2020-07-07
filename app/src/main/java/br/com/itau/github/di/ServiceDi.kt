@@ -42,7 +42,7 @@ val repoModule = module {
     single<GitHubRepository> { GitHubRepositoryImpl(get()) }
 }
 
-val useCaseModel = module {
+val useCaseModule = module {
     single<GitHubDataSource> { GitHubWebDataSource(get()) }
 }
 

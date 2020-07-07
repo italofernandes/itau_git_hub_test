@@ -16,6 +16,7 @@ class RepoListDiTest : AutoCloseKoinTest() {
         startKoin{ modules(
             retrofitModule,
             repoModule,
+            useCaseModule,
             schedulerModule,
             listModel
         ) }

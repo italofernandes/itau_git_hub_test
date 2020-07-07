@@ -19,6 +19,7 @@ class ServiceDiTest : AutoCloseKoinTest() {
         startKoin{ modules(
             retrofitModule,
             repoModule,
+            useCaseModule,
             schedulerModule
         ) }
     }
