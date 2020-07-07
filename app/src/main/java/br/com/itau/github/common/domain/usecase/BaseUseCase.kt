@@ -10,7 +10,7 @@ abstract class BaseUseCase {
     @VisibleForTesting
     private val disposableBag = CompositeDisposable()
 
-    fun addDisposable(disposable: Disposable) = disposableBag.add(disposable)
+    protected fun addDisposable(disposable: Disposable) = disposableBag.add(disposable)
     fun clearDisposable() = disposableBag.clear()
 
     protected fun handleException(exception: Throwable): Int =
