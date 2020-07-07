@@ -1,6 +1,5 @@
 package br.com.itau.github.di
 
-import br.com.itau.github.domain.usecase.list.RepoListUseCase
 import br.com.itau.github.domain.usecase.pr.RepoPrUseCase
 import br.com.itau.github.presentation.repoPrs.viewmodel.PrViewModel
 import junit.framework.Assert.assertNotNull

@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.itau.github.domain.entity.RepoEntity
-import br.com.itau.github.domain.usecase.list.RepoListUseCase
+import br.com.itau.github.domain.usecase.list.RepoListUseCaseImpl
 
 class RepoListViewModel(
-    private val useCase: RepoListUseCase
+    private val useCase: RepoListUseCaseImpl
 ): ViewModel() {
 
     private val _listRepo: MutableLiveData<List<RepoEntity>> by lazy { MutableLiveData<List<RepoEntity>>() }

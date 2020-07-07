@@ -5,6 +5,6 @@ import io.reactivex.Scheduler
 import io.reactivex.schedulers.Schedulers
 
 class TestSchedulers : AppSchedulers {
-    override fun main(): Scheduler =  Schedulers.single()
-    override fun worker(): Scheduler =  Schedulers.single()
+    override fun main(): Scheduler =  Schedulers.trampoline()
+    override fun worker(): Scheduler =  Schedulers.trampoline()
 }

@@ -7,12 +7,18 @@ import br.com.itau.github.data.model.RepoListResponseModel
 import br.com.itau.github.domain.entity.RepoListEntity
 import br.com.itau.github.domain.entity.RepoEntity
 
-class RepoListUseCase(
+interface RepoListUseCase{
+    fun getAllRepositories(page: Long,
+                           success: ((RepoListEntity) -> Unit)?,
+                           error:((Int)->Unit)?)
+}
+
+class RepoListUseCaseImpl(
     private val repository: GitHubRepository,
     private val schedulers: AppSchedulers
-): BaseUseCase() {
+): BaseUseCase(), RepoListUseCase{
 
-    fun getAllRepositories(page: Long,
+    override fun getAllRepositories(page: Long,
                            success: ((RepoListEntity) -> Unit)?,
                            error:((Int)->Unit)?
     ){

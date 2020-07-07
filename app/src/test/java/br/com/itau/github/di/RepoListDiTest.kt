@@ -1,8 +1,7 @@
 package br.com.itau.github.di
 
-import br.com.itau.github.domain.usecase.list.RepoListUseCase
+import br.com.itau.github.domain.usecase.list.RepoListUseCaseImpl
 import br.com.itau.github.presentation.repoList.viewmodel.RepoListViewModel
-import com.google.gson.Gson
 import junit.framework.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Test
@@ -24,7 +23,7 @@ class RepoListDiTest : AutoCloseKoinTest() {
 
     @Test
     fun `assert use case`(){
-        val useCase by inject<RepoListUseCase>()
+        val useCase by inject<RepoListUseCaseImpl>()
         assertNotNull(useCase)
     }
 

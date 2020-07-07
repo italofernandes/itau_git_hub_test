@@ -17,6 +17,7 @@ ext {
     rxjava_version = "2.0.1"
     okhttp_version = "4.7.1"
     spinkit_version = "1.4.0"
+    core_testing_version = '2.1.0'
 
     //Test
     mockito_version = "3.3.3"

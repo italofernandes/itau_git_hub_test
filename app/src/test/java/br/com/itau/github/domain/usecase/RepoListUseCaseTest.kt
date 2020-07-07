@@ -4,7 +4,7 @@ import br.com.itau.github.R
 import br.com.itau.github.TestSchedulers
 import br.com.itau.github.data.repository.GitHubRepository
 import br.com.itau.github.domain.entity.RepoListEntity
-import br.com.itau.github.domain.usecase.list.RepoListUseCase
+import br.com.itau.github.domain.usecase.list.RepoListUseCaseImpl
 import br.com.itau.github.mockRepoListEntityUseCase
 import br.com.itau.github.mockRepoResponseModel
 import com.nhaarman.mockitokotlin2.any
@@ -26,11 +26,11 @@ class RepoListUseCaseTest{
 
     @Mock
     private lateinit var repository: GitHubRepository
-    private lateinit var useCase: RepoListUseCase
+    private lateinit var useCase: RepoListUseCaseImpl
 
     @Before
     fun init(){
-        useCase = RepoListUseCase(repository, TestSchedulers())
+        useCase = RepoListUseCaseImpl(repository, TestSchedulers())
     }
 
     @Test
@@ -45,11 +45,10 @@ class RepoListUseCaseTest{
         useCase.getAllRepositories(page, {
             future.complete(it)
         }, { Assert.fail() })
-        
+
         // then
         Assert.assertEquals(result, future.get())
         verify(repository).getAllRepository(page)
-
     }
 
     @Test

@@ -61,17 +61,6 @@ val mockRepoEntity = RepoEntity(
     forkNumber = 345L
 )
 
-//val mockRepoModel = Repository(
-//    1L,
-//    "Mock Repo",
-//    "Mock Repo For test",
-//    "This is a Mock, for test purpose",
-//    45L,
-//    13L,
-//    mockOwnerModel
-//)
-
-
 val mockRepoEntityUseCase = RepoEntity(
     name = "Mock Repo",
     description = "This is a Mock, for test purpose",
@@ -96,4 +85,12 @@ val mockRepoListEntityUseCase = RepoListEntity(
         mockRepoEntityUseCase,
         mockRepoEntityUseCase
     )
+)
+
+val mockUserCasePrEntity = PrEntity(
+    authorName = "Mock User",
+    authorImage = "www.test.com/mockimage",
+    title = "This pr is a mock",
+    body = "this pr is a mock, ans is used just for test",
+    date = "12/03/2020"
 )
