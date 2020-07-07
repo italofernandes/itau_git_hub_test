@@ -23,7 +23,7 @@ internal fun Fragment.setupActionBar(toolbar: Toolbar,
 }
 
 fun Fragment.announceForAccessibility(announcement: String) {
-    val am = context!!.getSystemService(ACCESSIBILITY_SERVICE) as AccessibilityManager
+    val am = context?.getSystemService(ACCESSIBILITY_SERVICE) as AccessibilityManager
     if (am.isEnabled) {
         context
             ?.getSystemService(ACCESSIBILITY_SERVICE)

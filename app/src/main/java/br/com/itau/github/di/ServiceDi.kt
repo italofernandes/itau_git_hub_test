@@ -39,8 +39,11 @@ val retrofitModule = module {
 }
 
 val repoModule = module {
-    single<GitHubDataSource> { GitHubWebDataSource(get()) }
     single<GitHubRepository> { GitHubRepositoryImpl(get()) }
+}
+
+val useCaseModel = module {
+    single<GitHubDataSource> { GitHubWebDataSource(get()) }
 }
 
 val schedulerModule = module {
