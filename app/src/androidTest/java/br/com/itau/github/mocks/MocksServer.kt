@@ -4,6 +4,7 @@ import androidx.test.platform.app.InstrumentationRegistry
 import br.com.itau.github.data.model.PrResponseModel
 import br.com.itau.github.data.model.RepoListResponseModel
 import br.com.itau.github.data.repository.GitHubRepository
+import br.com.itau.github.domain.entity.RepoEntity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import io.reactivex.Single
@@ -73,4 +74,14 @@ object MocksServer {
 
         return sb.toString()
     }
+
+    val mockRepoEntity = RepoEntity(
+        name = "Mock Repo",
+        description = "This is a mock Repo",
+        author = "Mock Author",
+        authorImage = "www.test.com/mockImage",
+        starsNumber = 30L,
+        forkNumber = 345L
+    )
+
 }

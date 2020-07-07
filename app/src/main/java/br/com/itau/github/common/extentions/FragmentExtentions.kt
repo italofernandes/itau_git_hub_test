@@ -10,14 +10,15 @@ import androidx.fragment.app.Fragment
 
 internal fun Fragment.setupActionBar(toolbar: Toolbar,
                                      title: String,
-                                     showBackBt: Boolean = false
-){
-    (activity as AppCompatActivity?)?.apply {
-        setSupportActionBar(toolbar)
-        this.title = title
-        supportActionBar?.setDisplayHomeAsUpEnabled(showBackBt)
-        toolbar.setNavigationOnClickListener {
-            activity?.onBackPressed()
+                                     showBackBt: Boolean = false){
+    if (activity is AppCompatActivity) {
+        (activity as AppCompatActivity?)?.apply {
+            setSupportActionBar(toolbar)
+            this.title = title
+            supportActionBar?.setDisplayHomeAsUpEnabled(showBackBt)
+            toolbar.setNavigationOnClickListener {
+                activity?.onBackPressed()
+            }
         }
     }
 }
