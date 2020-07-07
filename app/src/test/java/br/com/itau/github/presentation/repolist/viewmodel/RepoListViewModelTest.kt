@@ -8,7 +8,10 @@ import br.com.itau.github.domain.entity.RepoEntity
 import br.com.itau.github.domain.usecase.list.RepoListUseCaseImpl
 import br.com.itau.github.mockRepoResponseModel
 import br.com.itau.github.presentation.repoList.viewmodel.RepoListViewModel
-import com.nhaarman.mockitokotlin2.*
+import com.nhaarman.mockitokotlin2.mock
+import com.nhaarman.mockitokotlin2.times
+import com.nhaarman.mockitokotlin2.verify
+import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Single
 import junit.framework.Assert.assertEquals
 import org.junit.Before
@@ -19,7 +22,6 @@ import org.mockito.ArgumentCaptor
 import org.mockito.Captor
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
-import java.lang.Exception
 
 @RunWith(MockitoJUnitRunner::class)
 class RepoListViewModelTest{

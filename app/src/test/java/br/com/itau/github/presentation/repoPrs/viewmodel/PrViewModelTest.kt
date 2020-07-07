@@ -7,17 +7,13 @@ import br.com.itau.github.TestSchedulers
 import br.com.itau.github.data.model.PrResponseModel
 import br.com.itau.github.data.repository.GitHubRepository
 import br.com.itau.github.domain.entity.PrEntity
-import br.com.itau.github.domain.entity.RepoEntity
 import br.com.itau.github.domain.usecase.pr.RepoPrUseCase
 import br.com.itau.github.mockPrModel
-import br.com.itau.github.mockRepoResponseModel
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Single
-import io.reactivex.schedulers.TestScheduler
-import junit.framework.Assert
 import junit.framework.Assert.assertEquals
 import junit.framework.Assert.assertTrue
 import org.junit.Before
@@ -28,7 +24,6 @@ import org.mockito.ArgumentCaptor
 import org.mockito.Captor
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
-import java.lang.Exception
 
 @RunWith(MockitoJUnitRunner::class)
 class PrViewModelTest{
@@ -94,7 +89,6 @@ class PrViewModelTest{
         //given
         val owner = "test owner"
         val repos = "repo"
-
 
         //when
         whenever(repository.getPrsForRepository(owner, repos)).thenReturn(Single.error(Exception("error")))

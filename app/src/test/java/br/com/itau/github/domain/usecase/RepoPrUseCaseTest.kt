@@ -1,11 +1,12 @@
 package br.com.itau.github.domain.usecase
 
-import br.com.itau.github.*
-import br.com.itau.github.data.model.PrResponseModel
+import br.com.itau.github.R
+import br.com.itau.github.TestSchedulers
 import br.com.itau.github.data.repository.GitHubRepository
 import br.com.itau.github.domain.entity.PrEntity
-import br.com.itau.github.domain.entity.RepoListEntity
 import br.com.itau.github.domain.usecase.pr.RepoPrUseCase
+import br.com.itau.github.mockPrModel
+import br.com.itau.github.mockUserCasePrEntity
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.verify
@@ -17,7 +18,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
-import java.net.SocketException
 import java.net.SocketTimeoutException
 import java.util.concurrent.CompletableFuture
 
